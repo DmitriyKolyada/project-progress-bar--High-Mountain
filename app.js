@@ -10,6 +10,7 @@ const FileStore = require('session-file-store')(session);
 const checkDbConnection = require('./db/config/checkDbConnection');
 
 const homeRoute = require('./src/routes/home.route');
+const userRoute = require('./src/routes/user.route');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,13 +27,13 @@ app.use(session({
 
 
 app.use('/', homeRoute);
+app.use('/', userRoute);
 
 
 
+const { DEV_PORT } = process.env;
 
-const { PORT } = process.env;
-
-app.listen(PORT, () => {
-  console.log(`server started PORT: ${PORT}`);
+app.listen(DEV_PORT, () => {
+  console.log(`server started PORT: ${DEV_PORT}`);
   checkDbConnection();
 });

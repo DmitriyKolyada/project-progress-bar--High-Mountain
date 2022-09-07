@@ -12,6 +12,7 @@ function Layout(props) {
                 <script defer src="js/application.js" />
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossOrigin="anonymous" />
                 <link rel="stylesheet" href="stylesheets/style.css" />
+                <link rel="stylesheet" href="stylesheets/normalize.css" />
                 <title>{props.title}</title>
             </head>
             <body>
@@ -22,26 +23,48 @@ function Layout(props) {
                             <h1>Высокая гора</h1>
                         </div>
                         {props.username
-                            ? (
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/logout">Выход</a>
+                        ? (
+                            <li className="nav-item">
+                                <a className="nav-link" href="/logout">Выход</a>
+                            </li>
+                        ) : (
+                            <>
+                            <li className="nav-item">
+                                    {''}
+                                    {/* <a className="nav-link" href="/signin">Войти</a> */}
                                 </li>
-                            ) : (
-                                <>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="/signin">Вход</a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="/signup">Регистрация</a>
-                                    </li>
-                                </>
-                            )}
-
-                        {!props.aAdmin && props.username
-                            ? (
+                            {/* <li className="nav-item">
+                                <a className="nav-link" href="/signup">Регистрация</a>
+                            </li> */}
+                            </>
+                        )}
+                        {props.isAdmin ? (
+                            <nav className="navbar navbar-expand-lg bg-light">
+                                <div className="container-fluid">
+                                    <a className="navbar-brand" href="#">Меню</a>
+                                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span className="navbar-toggler-icon" />
+                                    </button>
+                                    <div className="collapse navbar-collapse" id="navbarNav">
+                                        <ul className="navbar-nav">
+                                            <li className="nav-item">
+                                                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="#">Все листки адаптации</a>
+                                            </li>
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="#">Мои листки адаптации</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        ) : props.username ? (
+                            <>
                                 <nav className="navbar navbar-expand-lg bg-light">
                                     <div className="container-fluid">
-                                        <a className="navbar-brand" href="#">Navbar</a>
+                                        <a className="navbar-brand" href="#">Navigation</a>
                                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                             <span className="navbar-toggler-icon" />
                                         </button>
@@ -59,36 +82,12 @@ function Layout(props) {
                                                 <li className="nav-item">
                                                     <a className="nav-link" href="#">Пользователи</a>
                                                 </li>
-
                                             </ul>
                                         </div>
                                     </div>
                                 </nav>
-                            ) : (
-                                <>
-                                    <nav className="navbar navbar-expand-lg bg-light">
-                                        <div className="container-fluid">
-                                            <a className="navbar-brand" href="#">Navbar</a>
-                                            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                                <span className="navbar-toggler-icon" />
-                                            </button>
-                                            <div className="collapse navbar-collapse" id="navbarNav">
-                                                <ul className="navbar-nav">
-                                                    <li className="nav-item">
-                                                        <a className="nav-link active" aria-current="page" href="/">Home</a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a className="nav-link" href="#">Все листки адаптации</a>
-                                                    </li>
-                                                    <li className="nav-item">
-                                                        <a className="nav-link" href="#">Мои листки адаптации</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                </>
-                            )}
+                            </>
+                        ) : ''}
                     </header>
                     <div className="container">
                         <div className="row">
@@ -96,7 +95,7 @@ function Layout(props) {
                                 {props.children}
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </body>
         </html>

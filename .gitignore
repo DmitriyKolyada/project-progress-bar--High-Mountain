@@ -7,6 +7,16 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+
+
+.sequelizerc
+database.json
+databaseR.js
+db/models/
+
+.git/info/exclude/ 
+
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -131,7 +141,3 @@ dist
 
 sessions
 
-
-db/config/database.json
-db/models/index.js
-.sequelizerc

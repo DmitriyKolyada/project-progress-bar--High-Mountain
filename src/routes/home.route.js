@@ -9,7 +9,6 @@ route.get('/', (req, res) => {
 });
 
 route.post('/', async (req, res) => {
-
   const { loginForm, passwordForm } = req.body;
   console.log(loginForm, passwordForm);
   const user = await User.findOne({ where: { email: loginForm } });
@@ -19,16 +18,26 @@ route.post('/', async (req, res) => {
       req.session.userid = user.id;  
       req.session.username = `${user.firstNameHR} ${user.lastNameHR}`;    
       req.session.userrole = user.isAdmin;
-      req.session.save((error)=>{
-      res.redirect('/');      
-      });
-      //res.redirect(`/user/${user.id}`);
+      req.session.save((error)=>{     
+      res.redirect(`/user`);
+      });      
     } else {
-      return res.send('неверный пароль');
+      res.send('неверный пароль');
     }
   } else {
-    return res.send('неверный логин');
+      res.send('неверный логин');
   }
 });
+
+route.get('/signin', (req, res) => {
+  //renderTemplate(SignInForm, {}, res);
+  res.redirect('/');
+});
+
+route.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 
 module.exports = route;
