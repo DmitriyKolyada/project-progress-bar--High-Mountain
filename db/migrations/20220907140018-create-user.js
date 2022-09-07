@@ -13,6 +13,9 @@ module.exports = {
       lastNameHR: {
         type: Sequelize.STRING,
       },
+      login: {
+        type: Sequelize.STRING,
+      },
       password: {
         type: Sequelize.STRING,
       },

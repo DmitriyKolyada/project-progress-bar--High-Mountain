@@ -18,10 +18,10 @@ app.use(express.static(path.join(__dirname, './public/')));
 app.use(cookieParser());
 
 app.use(session({
-  store: new FileStore(), 
-  secret: process.env.SECRET ?? 'fdsgkfsgdsfsc372d32fdb4f', 
-  resave: false, 
-  saveUninitialized: false, 
+  store: new FileStore(),
+  secret: process.env.SECRET ?? 'fdsgkfsgdsfsc372d32fdb4f',
+  resave: false,
+  saveUninitialized: false,
   cookie: { secure: false },
 }));
 
