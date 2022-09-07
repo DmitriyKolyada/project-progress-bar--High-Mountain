@@ -31,6 +31,17 @@ module.exports = function userRegistration() {
         </label>
 
         <label htmlFor="password-input" className="">
+          Придумайте логин:
+          <input
+            type="login"
+            id="login-input"
+            name="login"
+            tabIndex="3"
+            className=""
+          />
+        </label>
+
+        <label htmlFor="password-input" className="">
           Придумайте пароль:
           <input
             type="password"

@@ -14,16 +14,15 @@ route.get('/', (req, res) => {
 
 route.post('/', async (req, res) => {
   const {
-    firstNameHR, lastNameHR, password, email,
+    firstNameHR, lastNameHR, login, password, email,
   } = req.body;
   try {
-    if (firstNameHR && lastNameHR && password && email) {
+    if (firstNameHR && lastNameHR && login && password && email) {
       const hashPasword = await bcrypt.hash(password, 5);
       const newUser = await User.create({
-        firstNameHR, lastNameHR, password: hashPasword, email,
+        firstNameHR, lastNameHR, login, password: hashPasword, email,
       });
-      const login = `${newUser.firstNameHR}_${newUser.lastNameHR}`;
-      req.session.newUser = login;
+      req.session.newUser = newUser.login;
       req.session.save(() => {
         res.redirect('/home');
       });
@@ -33,6 +32,9 @@ route.post('/', async (req, res) => {
     } else if (!lastNameHR) {
       res.send('Введите Вашу фамилию');
       res.status(400);
+    } else if (!login) {
+      res.send('Введите Ваш логин');
+      res.status(400);
     } else if (!password) {
       res.send('Придумайте пароль');
       res.status(400);
@@ -41,11 +43,16 @@ route.post('/', async (req, res) => {
       res.status(400);
     }
   } catch (error) {
-       const userRegisteredEarlier = await User.findOne({ where: { firstNameHR, lastNameHR, email } });
+    const userRegisteredEarlier = await User.findOne({ where: { firstNameHR, lastNameHR, email } });
+
+    const loginAlreadyInUse = await User.findOne({ where: { login } })
     const emailAlreadyInUse = await User.findOne({ where: { email } });
 
     if (userRegisteredEarlier) {
       res.send('Пользователь уже зарегистрирован ранее, перейдитe на авторизацию');
+      res.status(400);
+    } else if (loginAlreadyInUse) {
+      res.send('Данный логин уже используется');
       res.status(400);
     } else if (emailAlreadyInUse) {
       res.send('Данный Email уже используется');
