@@ -13,7 +13,7 @@ route.get('/', (req, res) => {
 
 route.post('/', async (req, res) => {
   const { loginForm, passwordForm } = req.body;
-    try {
+  try {
     const user = await User.findOne({ where: { login: loginForm } });
     // console.log('user======>', user);
     if (user) {
@@ -36,5 +36,16 @@ route.post('/', async (req, res) => {
     console.error(error);
   }
 });
+
+route.get('/signin', (req, res) => {
+  //renderTemplate(SignInForm, {}, res);
+  res.redirect('/');
+});
+
+route.get('/logout', (req, res) => {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 
 module.exports = route;

@@ -7,10 +7,12 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
+const { DEV_PORT } = process.env;
 const checkDbConnection = require('./db/config/checkDbConnection');
 
 const homeRoute = require('./src/routes/home.route');
-const regisnrationRoute = require('./src/routes/registration.route');
+const userRoute = require('./src/routes/user.route');
+const registrationRoute = require('./src/routes/registration.route');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,12 +27,9 @@ app.use(session({
   cookie: { secure: false },
 }));
 
-
 app.use('/', homeRoute);
-app.use('/registration', regisnrationRoute);
-
-
-const { DEV_PORT } = process.env;
+app.use('/', userRoute);
+app.use('/registration', registrationRoute);
 
 app.listen(DEV_PORT, () => {
   console.log(`server started PORT: ${DEV_PORT}`);

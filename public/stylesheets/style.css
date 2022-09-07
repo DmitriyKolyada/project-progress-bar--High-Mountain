@@ -17,3 +17,6 @@
   .home__text{
     margin: 80px 0;
   }
+  .nav-item {
+    list-style-type: none;
+  }
