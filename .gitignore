@@ -130,3 +130,8 @@ dist
 .pnp.*
 
 sessions
+
+
+db/config/database.json
+db/models/index.js
+.sequelizerc
