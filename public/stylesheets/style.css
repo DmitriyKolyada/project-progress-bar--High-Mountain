@@ -1,0 +1,19 @@
+.logo-container {
+    display: inline-block;
+    border: 5px solid #7EB515;
+    color: #4C5E66;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 20px;
+    margin: 0 left;
+    text-align: center;
+  }
+
+  .logo {
+    width:160px;
+  }
+
+  .home__text{
+    margin: 80px 0;
+  }
