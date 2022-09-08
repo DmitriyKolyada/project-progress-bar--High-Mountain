@@ -13,9 +13,7 @@ route.get('/', (req, res) => {
 
 route.post('/', async (req, res) => {
   const { loginForm, passwordForm } = req.body;
-  // console.log(loginForm, passwordForm);
-
-  try {
+    try {
     const user = await User.findOne({ where: { login: loginForm } });
     // console.log('user======>', user);
     if (user) {
