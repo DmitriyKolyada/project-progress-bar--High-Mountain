@@ -24,7 +24,7 @@ route.post('/', async (req, res) => {
       });
       req.session.newUser = newUser.login;
       req.session.save(() => {
-        res.redirect('/home');
+        res.redirect('/');
       });
     } else if (!firstNameHR) {
       res.send('Введите Ваше имя');
@@ -44,8 +44,7 @@ route.post('/', async (req, res) => {
     }
   } catch (error) {
     const userRegisteredEarlier = await User.findOne({ where: { firstNameHR, lastNameHR, email } });
-
-    const loginAlreadyInUse = await User.findOne({ where: { login } })
+    const loginAlreadyInUse = await User.findOne({ where: { login } });
     const emailAlreadyInUse = await User.findOne({ where: { email } });
 
     if (userRegisteredEarlier) {

@@ -2,7 +2,7 @@ const React = require('react');
 const Layout = require('./Layout');
 
 function Home(props) {
-  console.log('PropsHome=>>>>>>>>>', props);
+  // console.log('PropsHome=>>>>>>>>>', props);
   return (
     <Layout title="Home" username={props.username} isAdmin={props.isAdmin}>      
       <div className = "home__text">
