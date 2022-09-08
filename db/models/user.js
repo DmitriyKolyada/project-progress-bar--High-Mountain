@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasMany(models.ControlEmployeeAdaptation, { foreignKey: 'userId' });
+      this.hasMany(models.Employee, { foreignKey: 'userId' });
     }
   }
   User.init({

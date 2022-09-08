@@ -22,8 +22,9 @@ route.post('/', async (req, res) => {
         req.session.userid = user.id;
         req.session.username = `${user.firstNameHR} ${user.lastNameHR}`;
         req.session.userrole = user.isAdmin;
+        req.session.newUser = user.login;
         req.session.save(() => {
-          res.redirect('/');
+          res.redirect('/user');
         });
         // res.redirect(`/user/${user.id}`);
       } else {

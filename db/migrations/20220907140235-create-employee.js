@@ -14,6 +14,17 @@ module.exports = {
       lastNameEmployee: {
         type: Sequelize.STRING
       },
+      statuaAdaptation: {
+        type: Sequelize.BOOLEAN,
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: { tableName: 'Users' },
+          key: 'id',
+        },
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
