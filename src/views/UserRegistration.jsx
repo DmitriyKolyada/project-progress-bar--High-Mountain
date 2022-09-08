@@ -5,7 +5,7 @@ const Layout = require('./Layout');
 module.exports = function userRegistration() {
   return (
     <Layout>
-      <h2>New user registration</h2>
+      <h2>Регисрация нового пользователя</h2>
 
       <form action="/registration" method="POST">
         <label htmlFor="firstNameHR-input" className="">

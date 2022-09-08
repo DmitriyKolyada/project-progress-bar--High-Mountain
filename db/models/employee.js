@@ -11,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.hasOne(models.ControlEmployeeAdaptation);
+      this.belongsTo(models.User, { foreignKey: 'userId' });
+      this.hasOne(models.Anketa, { foreignKey: 'employeeId' });
     }
   }
   Employee.init({
     firstNameEmployee: DataTypes.STRING,
     lastNameEmployee: DataTypes.STRING,
+    statusAdaptation: DataTypes.BOOLEAN,
+    userId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Employee',

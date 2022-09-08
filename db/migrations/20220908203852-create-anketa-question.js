@@ -1,30 +1,25 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('ControlEmployeeAdaptations', {
+    await queryInterface.createTable('AnketaQuestions', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      userId: {
+      anketaId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
-          model: { tableName: 'Users' },
+          model: 'Anketas',
           key: 'id',
         },
       },
-      employeeId: {
+      questionListId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
-          model: { tableName: 'Employees' },
+          model: 'QuestionLists',
           key: 'id',
         },
-      },
-      statusAdaptation: {
-        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +32,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('ControlEmployeeAdaptations');
+    await queryInterface.dropTable('AnketaQuestions');
   },
 };
