@@ -20,7 +20,7 @@ function Home(props) {
                 Email:
                 <input id="logId" type="text" name="login" />
               </label>
-              <label className="pass__label" id="passId" htmlFor="tagName">
+              <label className="pass__label" id="passId" htmlFor="passId">
                 Пароль:
                 <input id="passId" type="password" name="password" />
               </label>
