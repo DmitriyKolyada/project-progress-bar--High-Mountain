@@ -11,20 +11,25 @@ function Home(props) {
       {props.username
         ? (
           <>
-            {''}
+
           </>
         ) : (
           <>
             <form action="/" method="POST">
-              <label className="log__label" id="logId" htmlFor="tagName">Email:
+              <label className="log__label" id="logId" htmlFor="tagName">
+                Email:
                 <input id="logId" type="text" name="loginForm" />
               </label>
-              <label className="pass__label" id="passId" htmlFor="tagName">Пароль:
+              <label className="pass__label" id="passId" htmlFor="tagName">
+                Пароль:
                 <input id="passId" type="password" name="passwordForm" />
               </label>
               <button type="submit">Войти</button>
             </form>
-            <button type="submit">Регистрация</button>
+
+            <a className="nav-link" href="/registration">Регистрация</a>
+
+            {/* <button type="submit">Регистрация</button> */}
           </>
         )}
     </Layout>
