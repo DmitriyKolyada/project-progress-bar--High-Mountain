@@ -26,7 +26,6 @@ route.post('/', async (req, res) => {
         req.session.save(() => {
           res.redirect('/user');
         });
-        // res.redirect(`/user/${user.id}`);
       } else {
         res.send('неверный пароль');
       }
