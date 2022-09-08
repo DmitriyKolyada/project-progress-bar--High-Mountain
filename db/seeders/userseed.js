@@ -4,6 +4,7 @@ module.exports = {
         {        
             firstNameHR: 'Иван',
             lastNameHR: 'Петров',       
+            login: 'IV_pet,',
             password: '123',        
             email: 'test@mount.com',  
             isAdmin: true,    
@@ -13,6 +14,7 @@ module.exports = {
         {        
             firstNameHR: 'Евгений',
             lastNameHR: 'Орлов',       
+            login: 'EV_orl,',
             password: '123',        
             email: 'jonh@mount.com',  
             isAdmin: true,    
@@ -21,7 +23,8 @@ module.exports = {
         },  
         {        
             firstNameHR: 'Вася',
-            lastNameHR: 'Пупкин',       
+            lastNameHR: 'Пупкин',
+            login: 'VA_pup,',       
             password: '123',        
             email: 'vasyaPupkin@mount.com',  
             isAdmin: false,    
@@ -30,8 +33,9 @@ module.exports = {
         },
         {        
             firstNameHR: 'John',
-            lastNameHR: 'Ivanov',       
-            password: '1234',        
+            lastNameHR: 'Ivanov',
+            login: 'JO_iva,',       
+            password: '123',        
             email: 'jonhIvanov@mount.com',  
             isAdmin: true,    
             createdAt: new Date(),        
@@ -39,7 +43,8 @@ module.exports = {
         },
         {        
             firstNameHR: 'Alex',
-            lastNameHR: 'Titov',       
+            lastNameHR: 'Titov',
+            login: 'AL_tit,',       
             password: '123',        
             email: 'alex@mount.com',  
             isAdmin: false,    
@@ -49,6 +54,7 @@ module.exports = {
         {        
             firstNameHR: 'Михаил',
             lastNameHR: 'Сомов',       
+            login: 'MI_som,',
             password: '123',        
             email: 'miha@mount.com',  
             isAdmin: true,    
