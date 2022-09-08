@@ -12,7 +12,7 @@ lerna-debug.log*
 .sequelizerc
 database.json
 databaseR.js
-db/models/
+db/seeders/
 
 .git/info/exclude/ 
 

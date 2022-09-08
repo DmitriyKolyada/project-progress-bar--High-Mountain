@@ -16,11 +16,11 @@ function Home(props) {
         ) : (
           <>
             <form action="/" method="POST">
-              <label className="log__label" id="logId" htmlFor="tagName">
-                Email:
+              <label className="log__label" id="logId" htmlFor="logId">
+                Логин:
                 <input id="logId" type="text" name="loginForm" />
               </label>
-              <label className="pass__label" id="passId" htmlFor="tagName">
+              <label className="pass__label" id="passId" htmlFor="passId">
                 Пароль:
                 <input id="passId" type="password" name="passwordForm" />
               </label>
