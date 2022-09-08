@@ -28,7 +28,7 @@ app.use(session({
 }));
 
 app.use('/', homeRoute);
-app.use('/', userRoute);
+app.use('/user', userRoute);
 app.use('/registration', registrationRoute);
 
 app.listen(DEV_PORT, () => {
