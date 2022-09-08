@@ -22,7 +22,7 @@ console.log('Props Layout=>>>>>>>>>>', props);
               <img className="logo" src="/img/mountain.png" alt="logo" />
               <h1>Высокая гора</h1>
             </div>
-            {props.username
+            {props.userName
               ? (
                 
                 <li className="nav-item">
@@ -64,7 +64,7 @@ console.log('Props Layout=>>>>>>>>>>', props);
                   </div>
                 </div>
               </nav>
-            ) : props.username ? (
+            ) : props.userName ? (
               <nav className="navbar navbar-expand-lg bg-light">
                 <div className="container-fluid">
                   <a className="navbar-brand" href="#">Меню</a>
