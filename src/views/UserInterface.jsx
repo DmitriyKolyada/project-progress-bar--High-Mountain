@@ -1,13 +1,13 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-module.exports = function UserInterface({ username, isAdmin}) {
+module.exports = function UserInterface({ userName, isAdmin}) {
   return (
-    <Layout title={username}>
+    <Layout userName={userName} isAdmin={isAdmin}>
       <h2>
         Привет,
         {' '}
-        {username}
+        {userName}
         !
       </h2>
     </Layout>

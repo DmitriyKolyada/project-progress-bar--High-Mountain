@@ -19,13 +19,13 @@ route.post('/', async (req, res) => {
   try {
     if (firstNameHR && lastNameHR && login && password && email) {
       const hashPasword = await bcrypt.hash(password, 5);
-      const user = await User.create({
+      const newUser = await User.create({
         firstNameHR, lastNameHR, login, password: hashPasword, email,
       });
-      req.session.userid = user.id;
-      req.session.user = user.login;
-      req.session.userName = `${user.firstNameHR} ${user.lastNameHR}`;
-      req.session.userRole = user.isAdmin;
+      req.session.userId = newUser.id;
+      req.session.user = newUser.login;
+      req.session.userName = `${newUser.firstNameHR} ${newUser.lastNameHR}`;
+      req.session.userRole = newUser.isAdmin;
       req.session.save(() => {
         res.redirect('/user');
       });

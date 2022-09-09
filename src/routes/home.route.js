@@ -8,23 +8,25 @@ const Home = require('../views/Home');
 const { User } = require('../../db/models');
 
 route.get('/', (req, res) => {
-  renderTemplate(Home, { username: req.session?.username, isAdmin: req.session.userrole }, res);
+  const { userName, isAdmin } = req.session;
+  renderTemplate(Home, { userName, isAdmin }, res);
 });
 
 route.post('/', async (req, res) => {
-  const { loginForm, passwordForm } = req.body;
+  const { login, password } = req.body;
   try {
-    const user = await User.findOne({ where: { login: loginForm } });
-    // console.log('user======>', user);
-    if (user) {
-      const passwordCheck = await bcrypt.compare(passwordForm, user.password);
+    const newUser = await User.findOne({ where: { login } });
+    if (newUser) {
+      const passwordCheck = await bcrypt.compare(password, newUser.password);
       if (passwordCheck) {
-        req.session.userid = user.id;
+       
         req.session.userFirstName = user.firstNameHR;
         req.session.userLastName = user.lastNameHR;
-        req.session.username = `${user.firstNameHR} ${user.lastNameHR}`;
-        req.session.userrole = user.isAdmin;
-        req.session.newUser = user.login;
+        req.session.userId = newUser.id;
+        req.session.userName = `${newUser.firstNameHR} ${newUser.lastNameHR}`;
+        req.session.isAdmin = newUser.isAdmin;
+        req.session.newUser = newUser.login;
+
         req.session.save(() => {
           res.redirect('/user');
         });
@@ -40,14 +42,23 @@ route.post('/', async (req, res) => {
 });
 
 route.get('/signin', (req, res) => {
-  //renderTemplate(SignInForm, {}, res);
   res.redirect('/');
 });
 
-route.get('/logout', (req, res) => {
-  req.session.destroy();
-  res.redirect('/');
+route.get('/logout', async (req, res) => {
+  try {
+    if (req.session.newUser) {
+      console.log('~ req.session.newUser', req.session.newUser);
+      req.session.destroy(() => {
+        res.clearCookie('UserCookie');
+        res.redirect('/');
+      });
+    } else {
+      res.redirect('/');
+    }
+  } catch (error) {
+    console.error(error);
+  }
 });
-
 
 module.exports = route;
