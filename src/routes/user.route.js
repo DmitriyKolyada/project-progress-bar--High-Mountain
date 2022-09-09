@@ -6,10 +6,8 @@ const UserInterface = require('../views/UserInterface');
 const { User } = require('../../db/models');
 
 route.get('/', (req, res) => {
-  const userName = req.session?.username;
-  console.log('~ userName+++++++++++++', userName)
-  
-  renderTemplate(UserInterface, { userName, isAdmin: req.session.userrole }, res);
+  const { userName, isAdmin } = req.session;
+  renderTemplate(UserInterface, { userName, isAdmin }, res);
 });
 
 // route.post('/', async (req, res) => {

@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 
-const { DEV_PORT } = process.env;
+const { DEV_PORT, SESSION_SECRET } = process.env;
 const checkDbConnection = require('./db/config/checkDbConnection');
 
 const homeRoute = require('./src/routes/home.route');
@@ -20,11 +20,16 @@ app.use(express.static(path.join(__dirname, './public/')));
 app.use(cookieParser());
 
 app.use(session({
+  name: 'UserCookie',
   store: new FileStore(),
-  secret: process.env.SECRET ?? 'fdsgkfsgdsfsc372d32fdb4f',
+  secret: SESSION_SECRET ?? 'fdsgkfsgdsfsc372d32fdb4f',
   resave: false,
   saveUninitialized: false,
-  cookie: { secure: false },
+  cookie: {
+    maxAge: 100000000,
+    httpOnly: true,
+    secure: false,
+  },
 }));
 
 app.use('/', homeRoute);

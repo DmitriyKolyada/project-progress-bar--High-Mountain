@@ -47,7 +47,7 @@ module.exports = function userRegistration() {
             type="password"
             id="password-input"
             name="password"
-            tabIndex="3"
+            tabIndex="4"
             className=""
           />
         </label>
@@ -58,7 +58,7 @@ module.exports = function userRegistration() {
             type="email"
             id="email-input"
             name="email"
-            tabIndex="4"
+            tabIndex="5"
             className=""
           />
         </label>
@@ -66,7 +66,7 @@ module.exports = function userRegistration() {
         <input
           type="submit"
           value="Зарегистрироваться"
-          tabIndex="5"
+          tabIndex="6"
           className=""
         />
       </form>
