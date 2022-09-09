@@ -1,7 +1,6 @@
 const React = require('react');
 
 function Layout(props) {
-// console.log('Props Layout=>>>>>>>>>>', props);
   return (
     <html lang="en">
       <head>
