@@ -20,3 +20,8 @@
   .nav-item {
     list-style-type: none;
   }
+
+  .usersList {
+    display: flex;
+    justify-content: space-around;    
+  }

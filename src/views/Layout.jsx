@@ -1,7 +1,6 @@
 const React = require('react');
 
 function Layout(props) {
-//console.log('Props Layout=>>>>>>>>>>', props);
   return (
     <html lang="en">
       <head>
@@ -13,6 +12,7 @@ function Layout(props) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossOrigin="anonymous" />
         <link rel="stylesheet" href="stylesheets/style.css" />
         <link rel="stylesheet" href="stylesheets/normalize.css" />
+        <script defer src="js/application.js" />
         <title>{props.title}</title>
       </head>
       <body>
@@ -24,7 +24,7 @@ function Layout(props) {
             </div>
             {props.userName
               ? (
-                
+
                 <li className="nav-item">
                   <a className="nav-link" href="/logout">Выход</a>
                 </li>
