@@ -20,6 +20,8 @@ route.post('/', async (req, res) => {
       const passwordCheck = await bcrypt.compare(passwordForm, user.password);
       if (passwordCheck) {
         req.session.userid = user.id;
+        req.session.userFirstName = user.firstNameHR;
+        req.session.userLastName = user.lastNameHR;
         req.session.username = `${user.firstNameHR} ${user.lastNameHR}`;
         req.session.userrole = user.isAdmin;
         req.session.newUser = user.login;
