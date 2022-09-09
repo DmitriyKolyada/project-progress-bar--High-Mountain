@@ -14,14 +14,14 @@ module.exports = {
       lastNameEmployee: {
         type: Sequelize.STRING
       },
-      statuaAdaptation: {
+      statusAdaptation: {
         type: Sequelize.BOOLEAN,
       },
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: { tableName: 'Users' },
+          model: 'Users',
           key: 'id',
         },
       },

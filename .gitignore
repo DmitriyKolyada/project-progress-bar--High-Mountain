@@ -7,19 +7,6 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-<<<<<<< HEAD
-
-
-.sequelizerc
-database.json
-databaseR.js
-db/seeders/
-
-.git/info/exclude/ 
-
-
-=======
->>>>>>> dev
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
@@ -143,4 +130,3 @@ dist
 .pnp.*
 
 sessions
-
