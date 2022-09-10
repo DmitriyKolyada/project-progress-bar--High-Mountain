@@ -17,7 +17,7 @@ function Home(props) {
           <>
             <form action="/" method="POST">
               <label className="log__label" id="logId" htmlFor="tagName">
-                Email:
+                Логин:
                 <input id="logId" type="text" name="login" />
               </label>
               <label className="pass__label" id="passId" htmlFor="passId">

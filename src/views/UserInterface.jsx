@@ -6,12 +6,15 @@ module.exports = function UserInterface({ userName, isAdmin, allUsers }) {
   // console.log('~ allUsers<+++++?????>>>>>', allUsers.value);
   return (
     <Layout userName={userName} isAdmin={isAdmin}>
-      <h2>
-        Привет,
-        {' '}
-        {userName}
-        !
-      </h2>
+      <div>
+        <h2>
+          Привет,
+          {' '}
+          {userName}
+          !
+        </h2>
+        <a href="/checklistForm">создать листок-адаптации</a>
+      </div>
       <div className="usersList">
         <div>
           <h5>Список ползователей</h5>

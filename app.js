@@ -13,7 +13,8 @@ const checkDbConnection = require('./db/config/checkDbConnection');
 const homeRoute = require('./src/routes/home.route');
 const userRoute = require('./src/routes/user.route');
 const registrationRoute = require('./src/routes/registration.route');
-const checkListFormRoute = require('./src/routes/checklistform.route');
+const checkListFormRoute = require('./src/routes/checklistForm.route');
+const checklist = require('./src/routes/checklist');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -36,7 +37,8 @@ app.use(session({
 app.use('/', homeRoute);
 app.use('/user', userRoute);
 app.use('/registration', registrationRoute);
-app.use('/checklistform', checkListFormRoute);
+app.use('/checklistForm', checkListFormRoute);
+app.use('/checklist', checklist);
 
 app.listen(DEV_PORT, () => {
   console.log(`server started PORT: ${DEV_PORT}`);

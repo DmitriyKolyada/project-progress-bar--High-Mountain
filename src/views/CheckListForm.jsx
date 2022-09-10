@@ -6,7 +6,7 @@ function CheckList(props) {
   return (
     <Layout title="CheckList">
       <h1>Список вопросов для сотрудника</h1>
-      <form action="/checklistform/send" method="POST">
+      <form action="/checklistForm/checklist" method="POST">
       <input className="checkList__inputFirstN" type="text" placeholder="Имя сотрудника" name="firstNameEmployee"/>  
       <input className="checkList__inputLastN" type="text" placeholder="Фамилия сотрудника" name="lastNameEmployee"/>   
         
